@@ -21,9 +21,17 @@ public class ProductController {
         return "Welcome this endpoint is not secure";
     }
 
-    @PostMapping("/new")
-    public String addNewUser(@RequestBody UserInfo userInfo){
-        return service.addUser(userInfo);
+//    @PostMapping("/new")
+    @GetMapping("/new")
+//    public String addNewUser(@RequestBody UserInfo userInfo){
+    public String addNewUser(){
+        UserInfo userInfo1 = new UserInfo();
+        userInfo1.setId(1);
+        userInfo1.setName("quan");
+        userInfo1.setEmail("quan@gmail.com");
+        userInfo1.setRoles("ROLE_ADMIN");
+        userInfo1.setPassword("1111");
+        return service.addUser(userInfo1);
     }
 
     @GetMapping("/all")
